@@ -1,5 +1,3 @@
-# 점수 57.0
-
 import numpy as np
 
 def rotate(array):
@@ -38,7 +36,8 @@ def solution(key, lock):
     c_size = len(check[0])
     
     for _ in range(4):
-        rotated = rotate(key)
+        key = rotate(key) # 기존 코드에는 key 배열을 회전한 것으로 key를 갱신하지 않아 그냥 제자리에서 90도 회전만 4번 한 거였음
+        rotated = np.array(key)
         for r in range(len(key) - r_size + 1):
             for c in range(len(key[0]) - c_size + 1):
                 k = rotated[r:r+r_size, c:c+c_size]
