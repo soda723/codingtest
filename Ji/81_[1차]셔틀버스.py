@@ -1,6 +1,6 @@
-# 소요시간 : 2h 10m ~~ing
+# 소요시간 : 2h 26m
 # 시간문제는 최소 단위로 변환하기
-# TC 18 런타임 에러
+# TC 18 런타임 에러 -> 배열길이 0인데 접근! ->해결0
 def to_answerformat(time):
     hour = time // 60
     minute = time - hour*60
@@ -37,6 +37,7 @@ def solution(n, t, m, timetable):
     bus = 540
     while bus < answer :
         for _ in range(m):
+            if len(newtable) == 0 : break
             if bus >= newtable[0]:
                 newtable.pop(0)
             else:break 
@@ -47,8 +48,3 @@ def solution(n, t, m, timetable):
     if len(newtable) >= m : answer = newtable[m-1] - 1
        
     return to_answerformat(answer)
-
-# ans = solution(1, 1, 1, ["23:59"])
-# if ans == "09:00":
-#     print("정답")
-# else : print("틀림 : ",ans)
